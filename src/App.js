@@ -3,7 +3,7 @@ import Navbar from './components/Navbar';
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import './App.css';
 import Home from './components/pages/Home';
-import Map from './components/pages/Map';
+import GoogleMap from './components/pages/GoogleMap';
 import TS from './components/pages/TS';
 import SignUp from './components/pages/SignUp';
 
@@ -14,7 +14,7 @@ function App() {
       <Navbar />
       <Switch>
         <Route path='/'exact component={Home}/>
-        <Route path='/map' component={Map} />
+        <Route path='/map' component={GoogleMap} />
         <Route path='/ts' component={TS} />
        
       </Switch>
