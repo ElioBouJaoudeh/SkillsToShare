@@ -15,7 +15,7 @@ function HeroSection() {
           buttonStyle='btn--outline'
           buttonSize='btn--large'
         >
-          GET STARTED
+          UPLOAD FILES
         </Button>
         <Button
           className='btns'
