@@ -76,7 +76,7 @@ border: none;
 border-radius: 4px;`;
 
 export const FormButton = styled.button`
-background: #0077ff; 
+background: #e6b060; 
 padding: 16px 0; 
 border: none; 
 border-radius: 4px; 
@@ -84,6 +84,17 @@ color: #fff;
 font-size: 20px; 
 cursor: pointer;
 `;
+
+export const FormButtonSmall = styled.button`
+background: #010101; 
+padding: 16px 0; 
+border: none; 
+border-radius: 4px; 
+color: #fff; 
+font-size: 14px; 
+cursor: pointer;
+`;
+
 export const Text = styled.span`
 text-align: center; 
 margin-top: 24px;

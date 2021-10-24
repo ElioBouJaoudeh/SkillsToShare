@@ -8,7 +8,21 @@
   .home,
   .map,
   .ts,
-  .sign-up {
+  .sign-in {
+    display: flex;
+    height: 90vh;
+    align-items: center;
+    justify-content: center;
+    font-size: 3rem;
+  }
+  .login {
+    display: flex;
+    height: 90vh;
+    align-items: center;
+    justify-content: center;
+    font-size: 3rem;
+  }
+  .preview {
     display: flex;
     height: 90vh;
     align-items: center;

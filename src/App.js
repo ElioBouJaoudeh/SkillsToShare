@@ -5,7 +5,7 @@ import './App.css';
 import Home from './components/pages/Home';
 import GMap from './components/pages/GMap';
 import TS from './components/pages/TS';
-import SignUp from './components/pages/SignUp';
+import Sign from './components/pages/Sign';
 
 function App() {
   return (

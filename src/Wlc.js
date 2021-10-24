@@ -2,7 +2,9 @@ import React, { Component } from 'react';
 import NavbarWlc from './components/NavbarWlc';
 import HeaderWlc from './components/HeaderWlc';
 import Footer from './components/Footer';
-import SignUp from './components/pages/SignUp';
+import Sign from './components/pages/Sign';
+import Login from './components/pages/Login';
+import Preview from './components/pages/Preview';
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import './Wlc.css';
 
@@ -13,7 +15,9 @@ function Welcome() {
         <Router>
           <NavbarWlc />
           <Switch>
-          <Route path='/sign-up' component={SignUp} />
+          <Route path='/sign-in' component={Sign} />
+          <Route path='/login' component={Login} />
+          <Route path='/preview' component={Preview} />
           </Switch>
     
         <HeaderWlc />

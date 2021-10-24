@@ -1,4 +1,5 @@
-import React from 'react'
+import React from 'react';
+import '../../Wlc';
 import {
     Container,
     FormWrap,
@@ -8,17 +9,13 @@ import {
     FormH1,
     FormLabel,
     FormInput,
-    FormButton,
-    Text,
-    FormButtonSmall
+    FormButton
     } from './SigninElements';
-    
-    
 
-const SignIn = () => {
-    return (
-        <>
-           <Container> 
+const Login= () => {
+  return(
+    <> 
+       <Container> 
                <FormWrap> 
                    <Icon to="/">Skills to Share</Icon>
                    <FormContent> 
@@ -28,16 +25,17 @@ const SignIn = () => {
                         <FormInput type='email' required />
                         <FormLabel htmlFor='for'>Password</FormLabel> 
                         <FormInput type='password' required /> 
-                        <FormButton type='submit'>Continue</FormButton>
-                        <FormButtonSmall type='forgot'>Forgot your password?</FormButtonSmall>
-
-
+                        <FormLabel htmlFor='for'>Confirm Password</FormLabel> 
+                        <FormInput type='password' required /> 
+                        <FormButton type='submit'>Create</FormButton>
+   
                          </Form>  
                    </FormContent>
                </FormWrap>
                </Container> 
-        </>
-    )
-}
+    </>
 
-export default SignIn;
+  );
+};
+
+export default Login;

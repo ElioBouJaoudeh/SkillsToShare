@@ -38,7 +38,7 @@ function NavbarWlc() {
               <ul className={click ? 'nav-menu active' : 'nav-menu'}>   
                 <li>
                   <Link
-                    to='/sign-up'
+                    to='/sign-in'
                     className='nav-links-mobile'
                     onClick={closeMobileMenu}
                   >

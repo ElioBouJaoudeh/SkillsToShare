@@ -1,8 +1,8 @@
 import React from 'react';
-import SignIn from '.';
+import SignIn from './index';
 import '../../Wlc';
 
-const SignUp= () => {
+const Sign= () => {
   return(
     <> 
       <SignIn />
@@ -11,4 +11,4 @@ const SignUp= () => {
   );
 };
 
-export default SignUp;
+export default Sign;
