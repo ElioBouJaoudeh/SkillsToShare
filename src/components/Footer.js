@@ -42,8 +42,8 @@ function Footer() {
         <div class='social-media-wrap'>
           <div class='footer-logo'>
             <Link to='/' className='social-logo'>
-              TRVL
-              <i class='fab fa-typo3' />
+            Skills To Share
+            <i class="fas fa-deaf"></i>
             </Link>
           </div>
           <small class='website-rights'>Skills To Share © 2021</small>
