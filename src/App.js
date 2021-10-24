@@ -4,7 +4,7 @@ import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import './App.css';
 import Home from './components/pages/Home';
 import GMap from './components/pages/GMap';
-import TS from './components/pages/TS';
+import ST from './components/pages/ST';
 import Sign from './components/pages/Sign';
 
 function App() {
@@ -15,7 +15,7 @@ function App() {
       <Switch>
         <Route path='/'exact component={Home}/>
         <Route path='/map' component={GMap} />
-        <Route path='/ts' component={TS} />
+        <Route path='/st' component={ST} />
        
       </Switch>
     </Router>

@@ -52,11 +52,11 @@ function Navbar() {
                 </li>
                 <li className='nav-item'>
                   <Link
-                    to='/ts'
+                    to='/st'
                     className='nav-links'
                     onClick={closeMobileMenu}
                   >
-                    Text/Speech
+                    Speech/Text
                   </Link>
                 </li>
     

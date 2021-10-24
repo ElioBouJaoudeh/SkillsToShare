@@ -11,7 +11,7 @@ top: 0;
 z-index: 0;
 overflow: hidden;
 background: linear-gradient( 108dcg,
-rgba(1, 147, 86, 1) 0%, rgba(10, 201, 122, 1) 100%
+rgb(18, 17, 16) 0%, rgb(18, 17, 16) 100%
 );
 `;
 export const FormWrap = styled.div`
@@ -63,6 +63,7 @@ color: #fff;
 font-size: 20px;
 font-weight: 400; 
 text-align: center;`;
+
 export const FormLabel = styled.label`
 margin-bottom: 8px; 
 font-size: 14px; 

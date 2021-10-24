@@ -4,6 +4,6 @@ import App from './App';
 import Welcome from './Wlc';
 
 ReactDOM.render(
-    <Welcome />,
+    <App />,
   document.getElementById('root')
 );
