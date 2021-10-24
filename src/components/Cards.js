@@ -11,35 +11,35 @@ function Cards() {
         <ul className='cards__items'>
             <CardItem
               src='images/img-9.png'
-              text='Explore the hidden waterfall deep inside the Amazon Jungle'
-              label='Adventure'
-              path='/map'
+              text='Please Call an Ambulance!'
+              label='Ambulance'
+              path='/'
             />
             <CardItem
               src='images/img-2.png'
-              text='Travel through the Islands of Bali in a Private Cruise'
-              label='Luxury'
-              path='/map'
+              text='I have been hurt / injured'
+              label='Accident'
+              path='/'
             />
           </ul>
           <ul className='cards__items'>
             <CardItem
               src='images/img-3.png'
-              text='Set Sail in the Atlantic Ocean visiting Uncharted Waters'
-              label='Mystery'
-              path='/map'
+              text='Please Check my Medical History'
+              label='Medical History'
+              path='/'
             />
             <CardItem
               src='images/img-4.png'
-              text='Experience Football on Top of the Himilayan Mountains'
-              label='Adventure'
-              path='/ts'
+              text='There’s been a theft/ a burglary/ an accident!'
+              label='Theft'
+              path='/'
             />
             <CardItem
               src='images/img-8.png'
-              text='Ride through the Sahara Desert on a guided camel tour'
-              label='Adrenaline'
-              path='/sign-up'
+              text='Contact the given number in case of emergency'
+              label='Contact'
+              path='/'
             />
           </ul>
         </div>

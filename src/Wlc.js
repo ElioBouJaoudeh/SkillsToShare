@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import NavbarWlc from './components/NavbarWlc';
+import Navbar from './components/Navbar';
 import HeaderWlc from './components/HeaderWlc';
 import Footer from './components/Footer';
 import SignUp from './components/pages/SignUp';
@@ -11,7 +11,7 @@ function Welcome() {
     return (
         <>
         <Router>
-          <NavbarWlc />
+          <Navbar />
           <Switch>
           <Route path='/sign-up' component={SignUp} />
           </Switch>
