@@ -1,0 +1,96 @@
+.settings {
+    display: flex;
+  }
+  
+  .settingsWrapper {
+    flex: 9;
+    padding: 60px;
+  }
+  
+  .settingsTitle {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  
+  .settingsTitleUpdate {
+    font-size: 40px;
+    margin-bottom: 20px;
+    color: rgb(18, 17, 16);
+  }
+    
+  .settingsForm {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .settingsPP {
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+  
+  .settingsPP > img {
+    height: 150px;
+    width: 150px;
+    border-radius: 15px;
+    object-fit: cover;
+  }
+  
+  .settingsPPIcon {
+    width: 25px;
+    height: 25px;
+    padding: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    border-radius: 50%;
+    margin-left: 10px;
+    color: white;
+    background-color: rgb(18, 17, 16);
+    cursor: pointer;
+  }
+  
+  .settingsPPButton:focus {
+    outline-style: none;
+  }
+  
+  .settingsForm > label {
+    font-size: 20px;
+    margin-top: 20px;
+  }
+  
+  .settingsPPInput {
+    width: 30%;
+  }
+  
+  .settingsForm > input {
+    color: rgb(18, 17, 16);
+    margin-top: 10px;
+    margin-bottom: 10px;
+    height: 30px;
+    border-radius:6px;
+    border: none;
+    border-bottom: 1px solid rgb(255, 255, 255);
+  }
+  
+  .settingsSubmitButton {
+    display: block;
+    text-align: center;
+    margin: 2rem auto;
+    border-radius: 4px;
+    width: 20%;
+    text-decoration: none;
+    font-size: 1.5rem;
+    background-color: transparent;
+    color: #ffffff;
+    padding: 13px 20px;
+    border: 1px solid rgb(18, 17, 16);
+    transition: all 0.3s ease-out;
+  }
+  
+  .settingsSubmitButton:hover {
+    background-color: rgb(18, 17, 16);
+  }

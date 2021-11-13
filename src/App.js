@@ -6,6 +6,7 @@ import Home from './components/pages/Home';
 import GMap from './components/pages/GMap';
 import ST from './components/pages/ST';
 import Sign from './components/pages/Sign';
+import Profile from './components/pages/Profile';
 
 function App() {
   return (
@@ -16,7 +17,7 @@ function App() {
         <Route path='/'exact component={Home}/>
         <Route path='/map' component={GMap} />
         <Route path='/st' component={ST} />
-       
+        <Route path='/prof' component={Profile} />
       </Switch>
     </Router>
     </>
