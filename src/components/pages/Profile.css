@@ -58,6 +58,7 @@
   }
   
   .settingsForm > label {
+    color: rgb(255, 255, 255);
     font-size: 20px;
     margin-top: 20px;
   }
@@ -70,10 +71,10 @@
     color: rgb(18, 17, 16);
     margin-top: 10px;
     margin-bottom: 10px;
-    height: 30px;
+    height: 45px;
     border-radius:6px;
     border: none;
-    border-bottom: 1px solid rgb(255, 255, 255);
+    border-bottom: 1px solid rgb(18, 17, 16);
   }
   
   .settingsSubmitButton {
