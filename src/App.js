@@ -1,9 +1,7 @@
 import React, { Component } from 'react';
-import Navbar from './components/Navbar';
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import './App.css';
 import GMap from './components/pages/GMap';
-import Footer from './components/Footer';
 import ST from './components/pages/ST';
 import Sign from './components/pages/Sign';
 import Profile from './components/pages/Profile';
