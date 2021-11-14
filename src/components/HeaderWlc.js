@@ -1,7 +1,7 @@
 import React from 'react';
 import '../App.css';
-import { Button } from './Button1';
-import { Button2 } from './Button2';
+import {LoginButton} from './LoginButton';
+import {SignButton} from './SignButton';
 import './HeaderWlc.css';
 
 function HeaderWlc() {
@@ -11,21 +11,21 @@ function HeaderWlc() {
       <h1>SKILLS TO SHARE</h1>
       <p>New on our page?</p>
       <div className='hero-btns'>
-        <Button
+        <SignButton
           className='btns'
           buttonStyle='btn--outline'
           buttonSize='btn--large'
         >
           SIGN UP
-        </Button>
-        <Button2
+        </SignButton>
+        <LoginButton
           className='btns'
           buttonStyle='btn--primary'
           buttonSize='btn--large'
           onClick={console.log('hey')}
         >
-          WATCH PREVIEW <i className='far fa-play-circle' />
-        </Button2>
+          LOG IN
+        </LoginButton>
       </div>
     </div>
   );

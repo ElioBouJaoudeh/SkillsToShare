@@ -78,18 +78,12 @@ export default function Profile() {
           <input type="street" class="form-control" id="autocomplete" placeholder="Street"/>
           <label>City</label>
           <input type="city" class="form-control" id="inputCity" placeholder="City"/>
-          <label>State</label>
-          <input type="state" class="form-control" id="inputState" placeholder="State"/>
-          <label>Zip</label>
-          <input type="zip" class="form-control" id="inputZip" placeholder="Zip"/>
-          <label>County</label>
-          <input type="county" class="form-control" id="inputCounty" placeholder="County"/>
           <label>Country</label>
           <input type="country" class="form-control" id="inputCountry" placeholder="Country"/>
-          <button className="settingsSubmitButton" type="submit">
-            UPDATE
-          </button>
         </form>
+        <button className="settingsSubmitButton" type="submit">
+          UPDATE
+        </button>
       </div>
     </div>
     </>

@@ -15,7 +15,7 @@ import {
     
     
 
-const SignIn = () => {
+const Login = () => {
     return (
         <>
          <div className='video-container'>
@@ -25,7 +25,7 @@ const SignIn = () => {
                    <Icon to="/">  </Icon>
                    <FormContent> 
                      <Form action="g">
-                         <FormH1>Sign in to your account </FormH1>
+                         <FormH1>Log into your account </FormH1>
                          <FormLabel htmlFor='for'>Email</FormLabel>
                         <FormInput type='email' required />
                         <FormLabel htmlFor='for'>Password</FormLabel> 
@@ -43,4 +43,4 @@ const SignIn = () => {
     )
 }
 
-export default SignIn;
+export default Login;

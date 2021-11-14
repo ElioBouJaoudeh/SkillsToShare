@@ -1,13 +1,12 @@
 import React from 'react';
-import SignIn from './index';
+import Login from './index';
 
 
 const Sign= () => {
   return(
     <> 
-      <SignIn />
+      <Login />
     </>
-
   );
 };
 

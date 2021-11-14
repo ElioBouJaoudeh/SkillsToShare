@@ -1,112 +1,46 @@
-import React from 'react'
-//import { Button } from './Button';
-import { Grid, Paper, Avatar, Typography, TextField,Button } from '@material-ui/core'
-import AddCircleOutlineOutlinedIcon from '@material-ui/icons/AddCircleOutlineOutlined';
-import Radio from '@material-ui/core/Radio';
-import RadioGroup from '@material-ui/core/RadioGroup';
-import FormControlLabel from '@material-ui/core/FormControlLabel';
-import FormControl from '@material-ui/core/FormControl';
-import FormLabel from '@material-ui/core/FormLabel';
-import Checkbox from '@material-ui/core/Checkbox';
-import { createTheme } from '@material-ui/core/styles';
-import { ThemeProvider } from '@material-ui/styles';
-import { Formik, Field, Form, ErrorMessage } from 'formik'
-import { FormHelperText } from '@material-ui/core'
-import * as Yup from 'yup'
+import React from 'react';
+import "./sign.css"
+import {
+    Container,
+    FormWrap,
+    Icon,
+    FormContent,
+    Form,
+    FormH1,
+    FormLabel,
+    FormInput,
+    FormButton
+    } from './SigninElements';
 
+const Signup= () => {
+  return(
+    <> 
+    <div className='video-container'>
+    <video src='/videos/video-bg.mp4' autoPlay loop muted />
+       <Container> 
+               <FormWrap> 
+                   <Icon to="/"> </Icon>
+                   <FormContent> 
+                     <Form action="g">
+                         <FormH1>Sign up to Skills To Share </FormH1>
+                         <FormLabel htmlFor='for'>Email</FormLabel>
+                        <FormInput type='email' required />
+                        <FormLabel htmlFor='for'>Password</FormLabel> 
+                        <FormInput type='password' required /> 
+                        <FormLabel htmlFor='for'>Confirm Password</FormLabel> 
+                        <FormInput type='password' required /> 
+                        
+                        <a href="/home" class="link_button">Create</a>
+                      
+                        <a href="/sign-in">Already have an account?  Sign-In</a>
+                         </Form>  
+                   </FormContent>
+               </FormWrap>
+               </Container> 
+               </div>
+    </>
 
-
-const Signup = () => {
-    const paperStyle = { padding: 20, width: 300, margin: "0 auto" }
-    const headerStyle = { margin: 0 }
-    const avatarStyle = { backgroundColor: '#ebb654' }
-    const marginTop = { marginTop: 5 }
-    const initialValues = {
-        name: '',
-        email: '',
-        gender: '',
-        phoneNumber: '',
-        password: '',
-        confirmPassword: '',
-        termsAndConditions: false
-    }
-    const theme = createTheme({
-        palette: {
-          primary: {
-            main: '#ffcc80',
-          },
-          secondary: {
-            main: '#212121',
-          },
-        },
-      });
-      
-    const validationSchema = Yup.object().shape({
-        name: Yup.string().min(3, "It's too short").required("Required"),
-        email: Yup.string().email("Enter valid email").required("Required"),
-        gender: Yup.string().oneOf(["male", "female"], "Required").required("Required"),
-        phoneNumber: Yup.number().typeError("Enter valid Phone Number").required('Required'),
-        password: Yup.string().min(8, "Password minimum length should be 8").required("Required"),
-        confirmPassword: Yup.string().oneOf([Yup.ref('password')], "Password not matched").required("Required"),
-        termsAndConditions: Yup.string().oneOf(["true"], "Accept terms & conditions")
-    })
-    const onSubmit = (values, props) => {
-        console.log(values)
-        console.log(props)
-        setTimeout(() => {
-
-            props.resetForm()
-            props.setSubmitting(false)
-        }, 2000)
-    }
-    return (
-        <Grid>
-            <Paper style={paperStyle}>
-                <Grid align='center'>
-                    <Avatar style={avatarStyle}>
-                        <AddCircleOutlineOutlinedIcon />
-                    </Avatar>
-                    <h2 style={headerStyle}>Sign Up</h2>
-                    <Typography variant='caption' gutterBottom>Please fill this form to create an account !</Typography>
-                </Grid>
-                <Formik initialValues={initialValues} validationSchema={validationSchema} onSubmit={onSubmit}>
-                    {(props) => (
-                        <Form>
-
-                            <Field as={TextField} fullWidth name="name" label='Name'
-                                placeholder="Enter your name" helperText={<ErrorMessage name="name" />} />
-                            <Field as={TextField} fullWidth name="email" label='Email'
-                                placeholder="Enter your email" helperText={<ErrorMessage name="email" />} />
-                            <FormControl component="fieldset" style={marginTop}>
-                                <FormLabel component="legend">Gender</FormLabel>
-                                < Field as={RadioGroup} aria-label="gender" name="gender" name="gender" style={{ display: 'initial' }}>
-                                    <FormControlLabel value="female" control={<Radio />} label="Female" />
-                                    <FormControlLabel value="male" control={<Radio />} label="Male" />
-                                </ Field>
-                            </FormControl>
-                            <FormHelperText><ErrorMessage name="gender" /></FormHelperText>
-                            <Field as={TextField} fullWidth name="phoneNumber" label='Phone Number'
-                                placeholder="Enter your phone number" helperText={<ErrorMessage name="phoneNumber" />} />
-                            <Field as={TextField} fullWidth name='password' type="password"
-                                label='Password' placeholder="Enter your password"
-                                helperText={<ErrorMessage name="password" />} />
-                            <Field as={TextField} fullWidth name="confirmPassword" type="password"
-                                label='Confirm Password' placeholder="Confirm your password"
-                                helperText={<ErrorMessage name="confirmPassword" />} />
-                            <FormControlLabel
-                                control={<Field as={Checkbox} name="termsAndConditions" />}
-                                label="I accept the terms and conditions."
-                            />
-                            <FormHelperText><ErrorMessage name="termsAndConditions" /></FormHelperText>
-                            <Button type='submit'  style={{backgroundColor: '#F3BF75', color: '#FFFFFF'}} variant='contained' disabled={props.isSubmitting}
-                                 href='/home'>{props.isSubmitting ? "Loading" : "Sign up"}</Button>
-
-                        </Form>
-                    )}
-                </Formik>
-            </Paper>
-        </Grid>
-    )
-}
+  );
+};
 
 export default Signup;
