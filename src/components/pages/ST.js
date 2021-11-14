@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import '../../components/pages/ST.css'
 import '../../App.css';
+import Navbar from '../Navbar';
 
 const SpeechRecognition =
   window.SpeechRecognition || window.webkitSpeechRecognition
@@ -56,6 +57,7 @@ export default function ST() {
 
   return (
     <>
+    <Navbar/>
     <video src='/videos/video-3.mp4' autoPlay loop muted />
       <div className="container">
         <div className="box">

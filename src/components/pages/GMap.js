@@ -5,6 +5,7 @@ import { Combobox, ComboboxInput, ComboboxPopover, ComboboxList, ComboboxOption 
 import { formatRelative } from "date-fns";
 import "@reach/combobox/styles.css";
 import "./GMap.css";
+import Navbar from "../Navbar";
 import mapStyles from "../pages/mapStyles";
 
 const libraries = ["places"];
@@ -55,7 +56,7 @@ export default function GMap() {
 
   return (
     <div>
-
+      <Navbar/>
       <Locate panTo={panTo} />
       <Search panTo={panTo} />
 

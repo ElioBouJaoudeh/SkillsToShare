@@ -2,6 +2,11 @@ import React from 'react';
 import CardItem from './CardItem';
 import './Cards.css';
 
+const openInNewTab = (url) => {
+  const newWindow = window.open(url, '_blank', 'noopener,noreferrer')
+  if (newWindow) newWindow.opener = null
+}
+
 function Cards() {
   return (
     <div className='cards'>
@@ -13,13 +18,13 @@ function Cards() {
               src='images/img-9.png'
               text='Please Call an Ambulance!'
               label='Ambulance'
-              path='/'
+              path='/ambulance'
             />
             <CardItem
               src='images/img-2.png'
               text='I have been hurt / injured'
               label='Accident'
-              path='/'
+              path='/injury'
             />
           </ul>
           <ul className='cards__items'>
@@ -33,13 +38,13 @@ function Cards() {
               src='images/img-4.png'
               text='There’s been a theft/ a burglary/ an accident!'
               label='Theft'
-              path='/'
+              path='/theft'
             />
             <CardItem
               src='images/img-8.png'
               text='Contact the given number in case of emergency'
               label='Contact'
-              path='/'
+              path='/emergencycall'
             />
           </ul>
         </div>

@@ -1,5 +1,6 @@
 import "./Profile.css";
 import {google} from 'react-google-maps';
+import Navbar from "../Navbar";
 
 var placeSearch, autocomplete;
 
@@ -45,6 +46,8 @@ function fillInAddress() {
 
 export default function Profile() {
   return (
+    <>
+    <Navbar/>
     <div className="profile">
       <video src='/videos/video-4.mp4' autoPlay loop muted />
       <div className="settingsWrapper">
@@ -89,5 +92,6 @@ export default function Profile() {
         </form>
       </div>
     </div>
+    </>
   );
 }
