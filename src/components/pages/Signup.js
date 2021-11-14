@@ -21,7 +21,7 @@ const Signup= () => {
                <FormWrap> 
                    <Icon to="/"> </Icon>
                    <FormContent> 
-                     <Form action="g">
+                     <Form action="/home">
                          <FormH1>Sign up to Skills To Share </FormH1>
                          <FormLabel htmlFor='for'>Email</FormLabel>
                         <FormInput type='email' required />
@@ -29,9 +29,7 @@ const Signup= () => {
                         <FormInput type='password' required /> 
                         <FormLabel htmlFor='for'>Confirm Password</FormLabel> 
                         <FormInput type='password' required /> 
-                        
-                        <a href="/home" class="link_button">Create</a>
-                      
+                        <FormButton type='submit'>Create</FormButton>
                         <a href="/sign-in">Already have an account?  Sign-In</a>
                          </Form>  
                    </FormContent>

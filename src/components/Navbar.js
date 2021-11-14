@@ -71,6 +71,15 @@ function Navbar() {
                 </li>
               </ul>
               {button && <ProfileButton buttonStyle='btn--outline'>PROFILE</ProfileButton>}
+              <li className='nav-items'>
+                  <Link
+                    to='/'
+                    className='nav-signs'
+                    onClick={closeMobileMenu}
+                  >
+                   <i class="fas fa-sign-out-alt"></i>
+                  </Link>
+                </li>
             </div>
           </nav>
         </>

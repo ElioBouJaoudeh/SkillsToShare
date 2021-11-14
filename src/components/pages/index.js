@@ -24,14 +24,13 @@ const Login = () => {
                <FormWrap> 
                    <Icon to="/">  </Icon>
                    <FormContent> 
-                     <Form action="g">
+                     <Form action="/home">
                          <FormH1>Log into your account </FormH1>
                          <FormLabel htmlFor='for'>Email</FormLabel>
                         <FormInput type='email' required />
                         <FormLabel htmlFor='for'>Password</FormLabel> 
                         <FormInput type='password' required /> 
-                        <a href="/home" class="link_button">Login</a>
-                        
+                        <FormButton type='submit'>Login</FormButton>
                         <a href="/pass" >Forgot your password?</a>
 
                          </Form>  
