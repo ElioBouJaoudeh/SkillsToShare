@@ -11,10 +11,11 @@ import Login from './components/pages/Login';
 import Preview from './components/pages/Preview';
 import HeaderWlc from './components/HeaderWlc';
 import Home from './components/pages/Home';
-import Theft from './components/VideoPages';
-import Ambulance from './components/VideoPages';
-import Emergencycall from './components/VideoPages';
-import Injury from './components/VideoPages';
+import Theft from './components/Theft';
+import Ambulance from './components/Ambulance';
+import Emergencycall from './components/Emergencycall';
+import Injury from './components/Injury';
+import Password from './components/pages/Password';
 
 function App() {
   return (
@@ -33,6 +34,7 @@ function App() {
         <Route path='/emergencycall' component={Emergencycall} />
         <Route path='/ambulance' component={Ambulance} />
         <Route path='/injury' component={Injury} />
+        <Route path='/pass' component={Password} />
       </Switch>
     </Router>
     </>

@@ -18,9 +18,11 @@ import {
 const SignIn = () => {
     return (
         <>
+         <div className='video-container'>
+            <video src='/videos/video-bg.mp4' autoPlay loop muted />
            <Container> 
                <FormWrap> 
-                   <Icon to="/">Skills to Share</Icon>
+                   <Icon to="/">  </Icon>
                    <FormContent> 
                      <Form action="g">
                          <FormH1>Sign in to your account </FormH1>
@@ -28,14 +30,15 @@ const SignIn = () => {
                         <FormInput type='email' required />
                         <FormLabel htmlFor='for'>Password</FormLabel> 
                         <FormInput type='password' required /> 
-                        <FormButton type='submit'>Continue</FormButton>
-                        <FormButtonSmall type='forgot'>Forgot your password?</FormButtonSmall>
-
+                        <a href="/home" class="link_button">Login</a>
+                        
+                        <a href="/pass" >Forgot your password?</a>
 
                          </Form>  
                    </FormContent>
                </FormWrap>
                </Container> 
+               </div>
         </>
     )
 }

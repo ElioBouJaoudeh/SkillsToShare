@@ -1,5 +1,5 @@
 import React from 'react';
-import '../../Wlc';
+import "./sign.css"
 import {
     Container,
     FormWrap,
@@ -15,9 +15,11 @@ import {
 const Login= () => {
   return(
     <> 
+    <div className='video-container'>
+    <video src='/videos/video-bg.mp4' autoPlay loop muted />
        <Container> 
                <FormWrap> 
-                   <Icon to="/">Skills to Share</Icon>
+                   <Icon to="/"> </Icon>
                    <FormContent> 
                      <Form action="g">
                          <FormH1>Sign in to your account </FormH1>
@@ -27,12 +29,15 @@ const Login= () => {
                         <FormInput type='password' required /> 
                         <FormLabel htmlFor='for'>Confirm Password</FormLabel> 
                         <FormInput type='password' required /> 
-                        <FormButton type='submit'>Create</FormButton>
-   
+                        
+                        <a href="/home" class="link_button">Create</a>
+                      
+                        <a href="/sign-in">Already have an account?  Sign-In</a>
                          </Form>  
                    </FormContent>
                </FormWrap>
                </Container> 
+               </div>
     </>
 
   );
