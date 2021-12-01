@@ -15,7 +15,7 @@
     justify-content: center;
     align-items: center;
     height: 80px;
-    max-width: 1500px;
+    max-width: 6000px;
   }
   
   .navbar-logo {
@@ -24,7 +24,7 @@
     margin-left: 20px;
     cursor: pointer;
     text-decoration: none;
-    font-size: 2rem;
+    font-size: 1.5rem;
     display: flex;
     align-items: center;
   }
@@ -36,11 +36,11 @@
   
   .nav-menu {
     display: grid;
-    grid-template-columns: repeat(4, auto);
+    grid-template-columns: repeat(6, auto);
     grid-gap: 10px;
     list-style: none;
-    text-align: center;
-    width: 60vw;
+    text-align: left;
+    width: 70vw;
     justify-content: end;
     margin-right: 2rem;
   }
@@ -152,7 +152,7 @@
       border-radius: 4px;
       width: 80%;
       text-decoration: none;
-      font-size: 1.5rem;
+      font-size: 1.0rem;
       background-color: transparent;
       color: #fff;
       padding: 14px 20px;

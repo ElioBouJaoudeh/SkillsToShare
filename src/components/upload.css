@@ -1,0 +1,19 @@
+.alert {
+    margin-bottom: 9px;
+    line-height:30px;
+    padding:0px 15px;
+    
+  }
+  .close{
+    border: 0;
+    border: 1px solid transparent;
+    padding-left: 10px;
+    outline: 0;
+    padding-bottom: 50px;
+    margin-bottom: 15px;
+    -ms-transform: translateY(-25%);
+    transform: translateY(-25%);
+  }
+
+  
+    

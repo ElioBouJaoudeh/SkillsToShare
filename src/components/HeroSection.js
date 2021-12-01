@@ -1,5 +1,6 @@
 import React from 'react';
 import '../App.css';
+import { UploadButton } from './UploadButton';
 import { PlayerButton } from './PlayerButton';
 import './HeroSection.css';
 
@@ -10,13 +11,13 @@ function HeroSection() {
       <h1>SKILLS TO SHARE</h1>
       <p>Always at your service.</p>
       <div className='hero-btns'>
-        <PlayerButton
+        <UploadButton
           className='btns'
           buttonStyle='btn--outline'
           buttonSize='btn--large'
         >
           UPLOAD FILES
-        </PlayerButton>
+        </UploadButton>
         <PlayerButton
           className='btns'
           buttonStyle='btn--primary'

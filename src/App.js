@@ -7,6 +7,7 @@ import Sign from './components/pages/Sign';
 import Profile from './components/pages/Profile';
 import Signup from './components/pages/Signup';
 import HeaderWlc from './components/HeaderWlc';
+import Upload from './components/Upload';
 import Home from './components/pages/Home';
 import Theft from './components/Theft';
 import Ambulance from './components/Ambulance';
@@ -35,6 +36,7 @@ function App() {
         <Route path='/pass' component={Password} />
         <Route path='/player' component={Player} />
         <Route path='/aboutsts' component={AboutSTS} />
+        <Route path='/uploadf' component={Upload} />
       </Switch>
     </Router>
     </>

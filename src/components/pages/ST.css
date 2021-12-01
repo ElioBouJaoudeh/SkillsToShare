@@ -3,6 +3,7 @@ body {
     font-family:'PT Sans', sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    
   }
   
   video {
@@ -21,6 +22,10 @@ body {
     margin: 40px;
     display: grid;
     grid-template-columns: 1fr 1fr;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    object-fit: contain;
   }
   
   .box {

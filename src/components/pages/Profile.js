@@ -48,9 +48,9 @@ export default function Profile() {
   return (
     <>
     <Navbar/>
+    <video src='/videos/video-4.mp4' autoPlay loop muted />
+    <div className="container">
     <div className="profile">
-      <video src='/videos/video-4.mp4' autoPlay loop muted />
-      <div className="settingsWrapper">
         <div className="settingsTitle">
         </div>
         <form className="settingsForm">
@@ -80,12 +80,12 @@ export default function Profile() {
           <input type="city" class="form-control" id="inputCity" placeholder="City"/>
           <label>Country</label>
           <input type="country" class="form-control" id="inputCountry" placeholder="Country"/>
-        </form>
-        <button className="settingsSubmitButton" type="submit">
+          <button className="settingsSubmitButton" type="submit">
           UPDATE
         </button>
+        </form>
       </div>
-    </div>
+      </div>
     </>
   );
 }
