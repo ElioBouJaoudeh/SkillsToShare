@@ -1,5 +1,7 @@
 import "./Profile.css";
 import {google} from 'react-google-maps';
+import React, { Component } from 'react';
+import axios from 'axios';
 import Navbar from "../Navbar";
 
 var placeSearch, autocomplete;
@@ -44,7 +46,76 @@ function fillInAddress() {
   }
 }
 
-export default function Profile() {
+export default class Profile extends Component {
+  constructor(props) {
+    super(props);
+
+    this.onChangeFirstName = this.onChangeFirstName.bind(this);
+    this.onChangeLastName = this.onChangeLastName.bind(this);
+    this.onChangeCity = this.onChangeCity.bind(this);
+    this.onChangeStreet = this.onChangeStreet.bind(this);
+    this.onChangeCountry = this.onChangeCountry.bind(this);
+    this.onSubmit = this.onSubmit.bind(this);
+
+    this.state = {
+      first_name: '',
+      last_name: '',
+      city: '',
+      street: '',
+      country : ''
+    }
+  }
+
+  onChangeFirstName(e) {
+    this.setState({
+      first_name: e.target.value
+    })
+  }
+
+  onChangeLastName(e) {
+    this.setState({
+      last_name: e.target.value
+    })
+  }
+
+  onChangeCity(e) {
+    this.setState({
+      city: e.target.value
+    })
+  }
+
+  onChangeCountry(e) {
+    this.setState({
+      country: e.target.value
+    })
+  }
+
+  onChangeStreet(e) {
+    this.setState({
+      street: e.target.value
+    })
+  }
+
+  onSubmit(e) {
+    e.preventDefault();
+
+    const profile = {
+      first_name: this.state.first_name,
+      last_name: this.state.last_name,
+      city: this.state.city,
+      street: this.state.street,
+      country: this.state.country,
+    }
+
+    console.log(profile);
+
+    axios.post('http://localhost:5000/profiles/add', profile)
+      .then(res => console.log(res.data));
+
+    window.location = '/';
+  }
+
+  render() {
   return (
     <>
     <Navbar/>
@@ -53,7 +124,7 @@ export default function Profile() {
     <div className="profile">
         <div className="settingsTitle">
         </div>
-        <form className="settingsForm">
+        <form className="settingsForm" onSubmit={this.onSubmit}>
           <label>Profile Picture</label>
           <div className="settingsPP">
             <img
@@ -71,15 +142,15 @@ export default function Profile() {
             />
           </div>
           <label>First Name</label>
-          <input type="text" placeholder="First Name" name="fname" />
+          <input type="text" placeholder="First Name" name="fname" value={this.state.first_name} onChange={this.onChangeFirstName}/>
           <label>Last Name</label>
-          <input type="text" placeholder="Last Name" name="lname" />
+          <input type="text" placeholder="Last Name" name="lname" value={this.state.last_name} onChange={this.onChangeLastName} />
           <label>Street</label>
-          <input type="street" class="form-control" id="autocomplete" placeholder="Street"/>
+          <input type="street" class="form-control" id="autocomplete" placeholder="Street" value={this.state.street} onChange={this.onChangeStreet}/>
           <label>City</label>
-          <input type="city" class="form-control" id="inputCity" placeholder="City"/>
+          <input type="city" class="form-control" id="inputCity" placeholder="City" value={this.state.city} onChange={this.onChangeCity}/>
           <label>Country</label>
-          <input type="country" class="form-control" id="inputCountry" placeholder="Country"/>
+          <input type="country" class="form-control" id="inputCountry" placeholder="Country" value={this.state.country} onChange={this.onChangeCountry}/>
           <button className="settingsSubmitButton" type="submit">
           UPDATE
         </button>
@@ -87,5 +158,6 @@ export default function Profile() {
       </div>
       </div>
     </>
-  );
+  )
+  }
 }
