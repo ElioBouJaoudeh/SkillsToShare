@@ -31,10 +31,16 @@ body {
   .box {
     box-shadow: -4px 10px 30px -1px rgba(0, 0, 0, 0.75);
     min-height: 22rem;
-    margin: 50px;
+    margin: 30px;
     padding: 20px;
     border-radius: 5px;
     background-color: white;
+  }
+
+  @media screen and (max-width: 800px) {
+    .left, .main, .right {
+      width: 100%; /* The width is 100%, when the viewport is 800px or smaller */
+    }
   }
   
   h1 {
