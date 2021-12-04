@@ -62,7 +62,8 @@ export default class Profile extends Component {
       last_name: '',
       city: '',
       street: '',
-      country : ''
+      country : '',
+      profileslist: []
     }
   }
 
@@ -112,20 +113,32 @@ export default class Profile extends Component {
     axios.post('http://localhost:5000/profiles/add', profile)
       .then(res => console.log(res.data));
 
-    window.location = '/';
+    /*window.location = '/';*/
   }
 
-  render() {
-  return (
-    <>
-    <Navbar/>
-    <video src='/videos/video-4.mp4' autoPlay loop muted />
-    <div className="container">
-    <div className="profile">
-        <div className="settingsTitle">
-        </div>
-        <form className="settingsForm" onSubmit={this.onSubmit}>
-          <label>Profile Picture</label>
+  componentDidMount = () => {
+    this.getBlogPost();
+  };
+
+
+  getBlogPost = () => {
+    axios.get('http://localhost:5000/profiles')
+      .then((response) => {
+        const data = response.data;
+        this.setState({ profileslist: data });
+        console.log('Data has been received!!');
+      })
+      .catch(() => {
+        alert('Error retrieving data!!!');
+      });
+  }
+
+  displayBlogPost = (profileslist) => {
+    if (!profileslist.length) return null;
+    if (profileslist[0].first_name=="Elio Naoum"){
+    return (
+      <div className="box">
+        <h3>Profile Picture</h3>
           <div className="settingsPP">
             <img
               src="https://t4.ftcdn.net/jpg/02/15/84/43/360_F_215844325_ttX9YiIIyeaR7Ne6EaLLjMAmy4GvPC69.jpg"
@@ -141,21 +154,53 @@ export default class Profile extends Component {
               className="settingsPPInput"
             />
           </div>
+        <h3>First Name:</h3>
+        <label>{profileslist[0].first_name}</label>
+        <h3>Last Name:</h3>
+        <label>{profileslist[0].last_name}</label>
+        <h3>Street:</h3>
+        <label>{profileslist[0].street}</label>
+        <h3> City:</h3>
+        <label>{profileslist[0].city}</label>
+        <h3> Country:</h3>
+        <label>{profileslist[0].country}</label>
+      </div>
+    )
+    }
+  };
+  
+  handleChange = ({ target }) => {
+    const { name, value } = target;
+    this.setState({ [name]: value });
+  };
+
+
+  render() {
+  return (
+    <>
+    <Navbar/>
+    <video src='/videos/video-4.mp4' autoPlay loop muted />
+    <div className="container">
+        <div className="settingsTitle">
+        </div>
+        <form className="settingsForm" onSubmit={this.onSubmit}>
           <label>First Name</label>
           <input type="text" placeholder="First Name" name="fname" value={this.state.first_name} onChange={this.onChangeFirstName}/>
           <label>Last Name</label>
           <input type="text" placeholder="Last Name" name="lname" value={this.state.last_name} onChange={this.onChangeLastName} />
           <label>Street</label>
-          <input type="street" class="form-control" id="autocomplete" placeholder="Street" value={this.state.street} onChange={this.onChangeStreet}/>
+          <input type="street" className="form-control" id="autocomplete" placeholder="Street" value={this.state.street} onChange={this.onChangeStreet}/>
           <label>City</label>
-          <input type="city" class="form-control" id="inputCity" placeholder="City" value={this.state.city} onChange={this.onChangeCity}/>
+          <input type="city" className="form-control" id="inputCity" placeholder="City" value={this.state.city} onChange={this.onChangeCity}/>
           <label>Country</label>
-          <input type="country" class="form-control" id="inputCountry" placeholder="Country" value={this.state.country} onChange={this.onChangeCountry}/>
+          <input type="country" className="form-control" id="inputCountry" placeholder="Country" value={this.state.country} onChange={this.onChangeCountry}/>
           <button className="settingsSubmitButton" type="submit">
           UPDATE
         </button>
+          <div className="profile">
+          {this.displayBlogPost(this.state.profileslist)}
+          </div>
         </form>
-      </div>
       </div>
     </>
   )

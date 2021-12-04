@@ -27,4 +27,32 @@ router.route('/add').post((req, res) => {
     .catch(err => res.status(400).json('Error: ' + err));
 });
 
+router.route('/:id').get((req, res) => {
+  Profile.findById(req.params.id)
+    .then(profile => res.json(profile))
+    .catch(err => res.status(400).json('Error: ' + err));
+});
+
+router.route('/:id').delete((req, res) => {
+  Profile.findByIdAndDelete(req.params.id)
+    .then(() => res.json('Profile deleted.'))
+    .catch(err => res.status(400).json('Error: ' + err));
+});
+
+router.route('/update/:id').post((req, res) => {
+  Profile.findById(req.params.id)
+    .then(profile => {
+      profile.first_name = req.body.first_name;
+      profile.last_name = req.body.last_name;
+      profile.city = req.body.city;
+      profile.street = req.body.street;
+      profile.country = req.body.country;
+
+      profile.save()
+        .then(() => res.json('Profile updated!'))
+        .catch(err => res.status(400).json('Error: ' + err));
+    })
+    .catch(err => res.status(400).json('Error: ' + err));
+});
+
 module.exports = router;

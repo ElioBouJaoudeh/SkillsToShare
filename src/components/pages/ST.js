@@ -60,7 +60,7 @@ export default function ST() {
     <Navbar/>
     <video src='/videos/video-3.mp4' autoPlay loop muted />
       <div className="container">
-        <div className="box">
+        <div className="boxST">
           <h2>Current Note</h2>
           {isListening ? <span>🎙️</span> : <span>🛑🎙️</span>}
           <button onClick={handleSaveNote} disabled={!note}>
@@ -71,7 +71,7 @@ export default function ST() {
           </button>
           <p>{note}</p>
         </div>
-        <div className="box">
+        <div className="boxST">
           <h2>Notes</h2>
           {savedNotes.map(n => (
             <p key={n}>{n}</p>
