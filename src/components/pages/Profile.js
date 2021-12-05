@@ -135,7 +135,14 @@ export default class Profile extends Component {
 
   displayBlogPost = (profileslist) => {
     if (!profileslist.length) return null;
-    if (profileslist[0].first_name=="Elio Naoum"){
+    function findindex(name){
+      for(var i=0; i < profileslist.length; i++){
+        if(profileslist[i].first_name === name){
+          return i;
+        }
+      }
+      return 0;
+    }
     return (
       <div className="box">
         <h3>Profile Picture</h3>
@@ -155,18 +162,17 @@ export default class Profile extends Component {
             />
           </div>
         <h3>First Name:</h3>
-        <label>{profileslist[0].first_name}</label>
+        <label>{profileslist[findindex("Elio Naoum")].first_name}</label>
         <h3>Last Name:</h3>
-        <label>{profileslist[0].last_name}</label>
+        <label>{profileslist[findindex("Elio Naoum")].last_name}</label>
         <h3>Street:</h3>
-        <label>{profileslist[0].street}</label>
+        <label>{profileslist[findindex("Elio Naoum")].street}</label>
         <h3> City:</h3>
-        <label>{profileslist[0].city}</label>
+        <label>{profileslist[findindex("Elio Naoum")].city}</label>
         <h3> Country:</h3>
-        <label>{profileslist[0].country}</label>
+        <label>{profileslist[findindex("Elio Naoum")].country}</label>
       </div>
     )
-    }
   };
   
   handleChange = ({ target }) => {
