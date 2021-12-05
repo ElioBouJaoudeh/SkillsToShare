@@ -11,13 +11,14 @@
 
   .box {
     box-shadow: -4px 10px 30px -1px rgba(0, 0, 0, 0.75);
-    min-height: 15rem;
+    min-height: 20rem;
     width: 55%;
     margin: 0px;
     margin-top: 30px;
     padding: 20px;
     border-radius: 5px;
-    column-gap: 70px;
+    column-gap: 100px;
+    column-width: 200px;
     column-count: 2;
     column-rule-width: 1px;
     column-rule-color: #262626;
@@ -51,8 +52,9 @@
   }
 
   .settingsPP > img {
-    height: 180px;
-    width: 180px;
+    height: 52%;
+    width: 52%;
+    margin-bottom: 20px;
     border-radius: 15px;
     object-fit: cover;
   }
