@@ -113,7 +113,7 @@ export default class Profile extends Component {
     axios.post('http://localhost:5000/profiles/add', profile)
       .then(res => console.log(res.data));
 
-    /*window.location = '/';*/
+    window.location = '/prof';
   }
 
   componentDidMount = () => {
@@ -179,7 +179,6 @@ export default class Profile extends Component {
     const { name, value } = target;
     this.setState({ [name]: value });
   };
-
 
   render() {
   return (
