@@ -30,9 +30,9 @@ function Cards() {
           <ul className='cards__items'>
             <CardItem
               src='images/img-3.png'
-              text='Please Check my Medical History'
-              label='Medical History'
-              path='/'
+              text='Access Organizations'
+              label='Organizations'
+              path='/adminorg'
             />
             <CardItem
               src='images/img-4.png'

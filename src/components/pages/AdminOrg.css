@@ -1,0 +1,147 @@
+.settings {
+    display: flex;
+  }
+
+  .container {
+    flex-direction: column;
+    justify-content: center;
+    align-items: left;
+    object-fit: contain;
+  }
+
+  .box {
+    box-shadow: -4px 10px 30px -1px rgba(0, 0, 0, 0.75);
+    min-height: 20rem;
+    width: 55%;
+    margin: 0px;
+    margin-top: 30px;
+    padding: 20px;
+    border-radius: 5px;
+    column-gap: 100px;
+    column-width: 200px;
+    column-count: 2;
+    column-rule-width: 1px;
+    column-rule-color: #262626;
+    column-rule-style: solid;
+    background-color: white
+  }
+
+  .settingsTitle {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  
+  .settingsTitleUpdate {
+    font-size: 40px;
+    margin-bottom: 20px;
+    color: rgb(18, 17, 16);
+  }
+    
+  .settingsForm {
+    display: grid;
+    flex-direction: column;
+    margin-left: 20px;
+  }
+  
+  .settingsPP {
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+
+  .settingsPP > img {
+    height: 52%;
+    width: 52%;
+    margin-bottom: 20px;
+    border-radius: 15px;
+    object-fit: cover;
+  }
+  
+  .settingsPPIcon {
+    width: 25px;
+    height: 25px;
+    padding: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    border-radius: 50%;
+    margin-left: 10px;
+    color: white;
+    background-color: rgb(18, 17, 16);
+    cursor: pointer;
+  }
+  
+  .settingsPPButton:focus {
+    outline-style: none;
+  }
+  
+  .settingsForm > label {
+    color: rgb(255, 255, 255);
+    font-size: 25px;
+    margin-top: 20px;
+  }
+  
+  .settingsPPInput {
+    width: 30%;
+  }
+  
+  .settingsForm > input {
+    color: rgb(18, 17, 16);
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-right: 300px;
+    font-size: 18px;
+    width: 55%;
+    height: 55px;
+    border-radius:6px;
+    border: none;
+    border-bottom: 1px solid rgb(18, 17, 16);
+  }
+  
+  .settingsSubmitButton {
+    display: block;
+    text-align: center;
+    margin: 0px;
+    margin-top: 30px;
+    border-radius: 4px;
+    width: 170px;
+    text-decoration: none;
+    font-size: 1.5rem;
+    background-color: transparent;
+    color: #ffffff;
+    padding: 13px 20px;
+    border: 1px solid rgb(18, 17, 16);
+    transition: all 0.3s ease-out;
+  }
+  
+  .settingsSubmitButton:hover {
+    background-color: rgb(18, 17, 16);
+  }
+
+  .phone{
+    color: rgb(18, 17, 16);
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-right: 300px;
+    font-size: 30px;
+    width: 55%;
+    height: 55px;
+    border-radius:6px;
+    border: none;
+    border-bottom: 1px solid rgb(18, 17, 16);
+  }
+
+  body {
+    margin:0;
+    font-family:'PT Sans', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    
+  }
+
+  .h3{
+    color: #262626;
+  }

@@ -16,6 +16,7 @@ import Injury from './components/Injury';
 import Password from './components/pages/Password';
 import Player from './components/Player';
 import AboutSTS from './components/pages/AboutSTS';
+import Organization from './components/pages/AdminOrg';
 
 function App() {
   return (
@@ -37,6 +38,7 @@ function App() {
         <Route path='/player' component={Player} />
         <Route path='/aboutsts' component={AboutSTS} />
         <Route path='/uploadf' component={Upload} />
+        <Route path='/adminorg' component={Organization}/>
       </Switch>
     </Router>
     </>
