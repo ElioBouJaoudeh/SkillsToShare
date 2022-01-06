@@ -2,7 +2,6 @@ import "./AdminOrg.css";
 import React, { Component } from 'react';
 import axios from 'axios';
 import Navbar from "../Navbar";
-import 'react-phone-number-input/style.css'
 
 export default class Organization extends Component {
   constructor(props) {

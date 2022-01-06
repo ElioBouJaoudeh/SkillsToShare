@@ -2,6 +2,10 @@ import React, { useState, useEffect } from 'react'
 import '../../components/pages/ST.css'
 import '../../App.css';
 import Navbar from '../Navbar';
+import {getItems} from '../../actions/ItemAction';
+import PropTypes from 'prop-types';
+import {connect, useSelector} from 'react-redux';
+
 
 const SpeechRecognition =
   window.SpeechRecognition || window.webkitSpeechRecognition
@@ -10,11 +14,11 @@ const mic = new SpeechRecognition()
 mic.continuous = true
 mic.interimResults = true
 mic.lang = 'en-US'
-
-export default function ST() {
+ function ST() {
   const [isListening, setIsListening] = useState(false)
   const [note, setNote] = useState(null)
   const [savedNotes, setSavedNotes] = useState([])
+  const items = useSelector(state => state.items);
 
   useEffect(() => {
     handleListen()
@@ -76,8 +80,28 @@ export default function ST() {
           {savedNotes.map(n => (
             <p key={n}>{n}</p>
           ))}
+          </div>
+          <div className="boxST">
+          <h2>Saved Notes</h2>
+          {items.map(({id,name}) => (
+            <p key={id}>{name}</p>
+          ))}
         </div>
       </div>
     </>
   )
 }
+
+ST.propTypes = {
+  getItems: PropTypes.func.isRequired,
+  item: PropTypes.object.isRequired
+};
+
+const mapStateToProps = state => ({
+  item: state.item
+});
+
+export default connect(
+  mapStateToProps,
+  { getItems }
+)(ST);
