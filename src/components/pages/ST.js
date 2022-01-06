@@ -2,10 +2,12 @@ import React, { useState, useEffect } from 'react'
 import '../../components/pages/ST.css'
 import '../../App.css';
 import Navbar from '../Navbar';
-import {getItems} from '../../actions/ItemAction';
 import PropTypes from 'prop-types';
 import {connect, useSelector} from 'react-redux';
-
+import { useDispatch } from "react-redux";
+import { actionCreators } from "../../actions/ItemAction";
+import InBasketItem from "./inBasketitem";
+import InListItem from "./inListitem";
 
 const SpeechRecognition =
   window.SpeechRecognition || window.webkitSpeechRecognition
@@ -58,6 +60,22 @@ mic.lang = 'en-US'
     setSavedNotes([...savedNotes, note])
     setNote('')
   }
+ 
+const dispatch = useDispatch();
+const [input, setInput] = useState("");
+
+const handleInputChange = event => {
+  return setInput(event.target.value);
+};
+
+const handleSubmit = () => {
+  dispatch(actionCreators.addToList(input));
+  setInput("");
+};
+
+const handleClear = () => {
+  dispatch(actionCreators.clearItems());
+};
 
   return (
     <>
@@ -83,9 +101,28 @@ mic.lang = 'en-US'
           </div>
           <div className="boxST">
           <h2>Saved Notes</h2>
-          {items.map(({id,name}) => (
-            <p key={id}>{name}</p>
-          ))}
+          {items.map((item, index) => {
+        return item.inBasket ? (
+          <InBasketItem item={item} index={index} />
+        ) : (
+          <InListItem item={item} index={index} />
+        );
+      })}
+      <div>
+      <input
+        className="input"
+        placeholder="Add item..."
+        value={input}
+        onChange={handleInputChange}
+      />
+      <button className="button" variant="outline-dark" onClick={handleSubmit}>
+        Add
+      </button>
+      <button className="button" variant="outline-dark" onClick={handleClear}>
+        Clear
+      </button>
+    </div>
+         
         </div>
       </div>
     </>
@@ -93,8 +130,7 @@ mic.lang = 'en-US'
 }
 
 ST.propTypes = {
-  getItems: PropTypes.func.isRequired,
-  item: PropTypes.object.isRequired
+  item: PropTypes.object.isRequired,
 };
 
 const mapStateToProps = state => ({
@@ -102,6 +138,5 @@ const mapStateToProps = state => ({
 });
 
 export default connect(
-  mapStateToProps,
-  { getItems }
+  mapStateToProps
 )(ST);

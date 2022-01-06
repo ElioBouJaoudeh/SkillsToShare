@@ -1,25 +1,53 @@
-
-import { GET_ITEMS, ADD_ITEM, DELETE_ITEM } from '../actions/Types';
-
 const initialState = {
-  items: [
-    { id: '1', name: 'Eggs' },
-    { id: '2', name: 'Milk' },
-    { id: '3', name: 'Steak' },
-    { id: '0', name: 'Candy' }
-  ]
+  items: []
 };
 
-export default function(state = initialState, action) {
+const addItemToBasket = (array, action) => {
+  return array.map((item, index) => {
+    if (index !== action.payload) {
+      return item;
+    }
+
+    return {
+      ...item,
+      inBasket: true
+    };
+  });
+};
+
+const removeItemFromList = (array, action) => {
+  return array.filter((item, index) => index !== action.payload);
+};
+
+export default (state = initialState, action) => {
   switch (action.type) {
-    case GET_ITEMS:
+    case "ADD_TO_LIST":
       return {
         ...state,
         items: [
           ...state.items,
+          {
+            value: action.payload,
+            inBasket: false
+          }
         ]
       };
+    case "ADD_TO_BASKET":
+      return {
+        ...state,
+        items: addItemToBasket(state.items, action)
+      };
+    case "REMOVE_ITEM":
+      return {
+        ...state,
+        items: removeItemFromList(state.items, action)
+      };
+    case "CLEAR_ITEMS": {
+      return {
+        items: []
+      };
+    }
     default:
       return state;
   }
-}
+};

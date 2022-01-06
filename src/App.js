@@ -19,10 +19,8 @@ import AboutSTS from './components/pages/AboutSTS';
 import Organization from './components/pages/AdminOrg';
 import { Provider } from 'react-redux';
 import store from './Store'
-import Saved from './components/pages/Saved'
-import ViewNotes from './components/ViewNotes';
-import AddNotes from './components/AddNotes';
-import AppNavigator from './components/screen';
+
+
 
 
 function App() {
@@ -46,9 +44,7 @@ function App() {
         <Route path='/aboutsts' component={AboutSTS} />
         <Route path='/uploadf' component={Upload} />
         <Route path='/adminorg' component={Organization}/>
-        <Route path='/notes' component={ViewNotes} />
-        <Route path='/add' component={AddNotes} />
-   
+
       </Switch>
     </Router>
     </Provider>

@@ -1,7 +1,6 @@
-import { GET_ITEMS, ADD_ITEM, DELETE_ITEM } from './Types';
-
-export const getItems = () => {
-  return {
-    type: GET_ITEMS
-  };
+export const actionCreators = {
+  addToList: data => ({ type: "ADD_TO_LIST", payload: data }),
+  addToBasket: data => ({ type: "ADD_TO_BASKET", payload: data }),
+  removeItem: data => ({ type: "REMOVE_ITEM", payload: data }),
+  clearItems: () => ({ type: "CLEAR_ITEMS" })
 };
