@@ -4,6 +4,15 @@
     padding:0px 15px;
     
   }
+
+  .container {
+    flex-direction: column;
+    justify-content: center;
+    align-items: left;
+    object-fit: contain;
+    min-height: 30rem;
+  }
+
   .close{
     border: 0;
     border: 1px solid transparent;
