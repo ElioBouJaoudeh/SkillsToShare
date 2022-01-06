@@ -2,9 +2,6 @@ import "./AdminOrg.css";
 import React, { Component } from 'react';
 import axios from 'axios';
 import Navbar from "../Navbar";
-import PhoneInput from "react-phone-number-input";
-import flags from 'react-phone-number-input/flags';
-import { isValidPhoneNumber } from 'react-phone-number-input';
 import 'react-phone-number-input/style.css'
 
 export default class Organization extends Component {
@@ -112,11 +109,11 @@ export default class Organization extends Component {
           <label>Address</label>
           <input type="text" placeholder="Address" name="address" value={this.state.address} onChange={this.onChangeAddress} />
           <label>Number</label>
-          <PhoneInput className ="phone"  placeholder = "Enter phone number" value={this.state.number} onChange = {this.onChangeNumber}></PhoneInput>
+          <input type="tel" className ="number"  placeholder = "Phone Number" value={this.state.number} onChange = {this.onChangeNumber} />
           <label>Fax</label>
           <input placeholder="Fax" value={this.state.fax} onChange={this.onChangeFax}/>
           <label>Website</label>
-          <input placeholder="Website" value={this.state.website} onChange={this.onChangeWebsite}/>
+          <input type="url" placeholder="Website" value={this.state.website} onChange={this.onChangeWebsite}/>
           <button className="settingsSubmitButton" type="submit">
           SEND
         </button>
