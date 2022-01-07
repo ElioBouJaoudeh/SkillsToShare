@@ -185,9 +185,7 @@ const AboutSTS = () => {
           />
         </ColumnRight>
       </Container>
-      
     </Section>
-    
     <Containervid><Player/></Containervid>
     <Footer></Footer>
     </>
