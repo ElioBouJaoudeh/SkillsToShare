@@ -1,98 +1,73 @@
-import React, { Fragment, useState } from 'react';
-import Message from './Message';
-import Progress from './Progress';
-import axios from 'axios';
-import Footer from './Footer';
-import Navbar from './Navbar';
-import './upload.css'
+import React, {useState, useEffect} from 'react';
+import './FileUpload.css';
+import FileUploadScreen from '../components/FileUploadScreen';
+import {getSingleFiles, getMultipleFiles} from '../data/api';
 
-document.body.style = "background-image: url('https://images.pexels.com/photos/242236/pexels-photo-242236.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260')";
+function FileUploader() {
+  const [singleFiles, setSingleFiles] = useState([]);
+  const [multipleFiles, setMultipleFiles] = useState([]);
 
-const FileUpload = () => {
-  const [file, setFile] = useState('');
-  const [filename, setFilename] = useState('Choose File');
-  const [uploadedFile, setUploadedFile] = useState({});
-  const [message, setMessage] = useState('');
-  const [uploadPercentage, setUploadPercentage] = useState(0);
-
-  const onChange = e => {
-    setFile(e.target.files[0]);
-    setFilename(e.target.files[0].name);
-  };
-
-  const onSubmit = async e => {
-    e.preventDefault();
-    const formData = new FormData();
-    formData.append('file', file);
-
+  const getSingleFileslist = async () => {
     try {
-      const res = await axios.post('/upload', formData, {
-        headers: {
-          'Content-Type': 'multipart/form-data'
-        },
-        onUploadProgress: progressEvent => {
-          setUploadPercentage(
-            parseInt(
-              Math.round((progressEvent.loaded * 100) / progressEvent.total)
-            )
-          );
-        }
-      });
-      
-      // Clear percentage
-      setTimeout(() => setUploadPercentage(0), 10000);
-
-      const { fileName, filePath } = res.data;
-
-      setUploadedFile({ fileName, filePath });
-
-      setMessage('File Uploaded');
-    } catch (err) {
-      if (err.response.status === 500) {
-        setMessage('There was a problem with the server');
-      } else {
-        setMessage(err.response.data.msg);
-      }
-      setUploadPercentage(0)
+        const fileslist = await getSingleFiles();
+        setSingleFiles(fileslist);
+    } catch (error) {
+      console.log(error);
     }
-  };
-
+  }
+  const getMultipleFilesList = async () => {
+    try {
+        const fileslist = await getMultipleFiles();
+        setMultipleFiles(fileslist);
+        console.log(multipleFiles);
+    } catch (error) {
+      console.log(error);
+    }
+  }
+  useEffect(() => {
+    getSingleFileslist();
+    getMultipleFilesList();
+  }, []);
   return (
-    <Fragment >
-     
-      <form onSubmit={onSubmit}>
-      {message ? <Message msg={message} /> : null}
-        <div className='custom-file mb-4'>
-          <input
-            type='file'
-            className='custom-file-input'
-            id='customFile'
-            onChange={onChange}
-          />
-          {/* <label className='custom-file-label' htmlFor='customFile'>
-            {filename}
-          </label> */}
-        </div>
-
-        <Progress percentage={uploadPercentage} />
-
-        <input
-          type='submit'
-          value='Upload'
-          className='btn btn-outline-dark btn-block mt-4'
-        />
-      </form>
-      {uploadedFile ? (
-        <div className='row mt-5'>
-          <div className='col-md-6 m-auto'>
-            {/* <h3 className='text-center'>{uploadedFile.fileName}</h3> */}
-            <img style={{ width: '100%' }} src={uploadedFile.filePath} alt='' />
-          </div>
-        </div>
-      ) : null}
-     
-    </Fragment>
+    <>
+        <div className="boxfile">
+          <FileUploadScreen getsingle={() => getSingleFileslist()} getMultiple={() => getMultipleFilesList()}/>
+       </div> 
+       <div className="boxshow">
+         <div className="row">
+           <div className="col-6">
+             <h4 className="text-success font-weight-bold"/>
+             <div className="row">
+                {singleFiles.map((file, index) => 
+                  <div className="col-6">
+                    <div className="card mb-2 border-0 p-0">
+                      <img src={`http://localhost:5000/${file.filePath}`} height="100" className="card-img-top img-responsive" alt="img"/>
+                      </div>
+                  </div>
+                )}
+             </div>
+           </div>
+           <div className="col-6">
+             <h4 className="text-success font-weight-bold"/>
+             {multipleFiles.map((element, index) =>
+                <div key={element._id}>
+                    <h6 className="text-danger font-weight-bold">{element.title}</h6>
+                    <div className="row">
+                      {element.files.map((file, index) =>
+                        <div className="col-6">
+                            <div className="card mb-2 border-0 p-0">
+                              <img src={`http://localhost:5000/${file.filePath}`} height="100" className="card-img-top img-responsive" alt="img"/>
+                              </div>
+                          </div>
+                       )}
+                      </div>
+                </div>
+              )}
+           </div>
+         </div>
+       </div>
+    </>
   );
-};
+}
 
-export default FileUpload;
+export default FileUploader;

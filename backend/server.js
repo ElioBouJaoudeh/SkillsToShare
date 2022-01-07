@@ -1,6 +1,10 @@
+'use strict';
 const express = require('express');
 const cors = require('cors');
+const path = require('path');
 const mongoose = require('mongoose');
+const bodyParser = require('body-parser');
+const fileRoutes = require('./routes/file-upload-routes');
 
 require('dotenv').config();
 
@@ -25,6 +29,9 @@ const orgsRouter = require('./routes/organization');
 app.use('/profiles', profilesRouter);
 app.use('/notes', notesRouter);
 app.use('/org', orgsRouter);
+app.use(bodyParser.json());
+app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
+app.use('/api', fileRoutes.routes);
 
 app.listen(port, () => {
     console.log(`Server is running on port: ${port}`);
