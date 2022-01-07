@@ -5,12 +5,15 @@
     
   }
 
-  .container {
+  .containerupload {
+    margin: 80px;
     flex-direction: column;
+    padding-top: 12px;
     justify-content: center;
     align-items: left;
     object-fit: contain;
-    min-height: 30rem;
+    grid-template-columns: 1fr 1fr;
+    min-height: 57rem;
   }
 
   .close{
@@ -23,6 +26,3 @@
     -ms-transform: translateY(-25%);
     transform: translateY(-25%);
   }
-
-  
-    

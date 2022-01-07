@@ -1,7 +1,5 @@
 import React, {useState, useEffect} from 'react';
 import {singleFileUpload, multipleFilesUpload} from '../data/api';
-import {CircularProgressbar, buildStyles} from 'react-circular-progressbar';
-import 'react-circular-progressbar/dist/styles.css';
 
 const FileUploadScreen = (props) => {
     const [singleFile, setSingleFile] = useState('');
@@ -59,20 +57,6 @@ const FileUploadScreen = (props) => {
                         <button type="button" className="button" onClick={() => uploadSingleFile()} >Upload</button>
                     </div>
                     <div className="col-2">
-                        <CircularProgressbar
-                            value={singleProgress}
-                            text={`${singleProgress}%`}
-                            styles={buildStyles({
-                                rotation: 0.25,
-                                strokeLinecap: 'butt',
-                                textSize: '16px',
-                                pathTransitionDuration: 0.5,
-                                pathColor: `rgba(255, 136, 136, ${singleProgress / 100})`,
-                                textColor: '#f88',
-                                trailColor: '#d6d6d6',
-                                backgroundColor: '#3e98c7',
-                            })}
-                        />
                     </div>
                 </div>
             </div>
@@ -91,20 +75,6 @@ const FileUploadScreen = (props) => {
                             <button type="button" onClick={() => UploadMultipleFiles()}  className="button">Upload</button>
                         </div>
                         <div className="col-2">
-                        <CircularProgressbar
-                            value={multipleProgress}
-                            text={`${multipleProgress}%`}
-                            styles={buildStyles({
-                                rotation: 0.25,
-                                strokeLinecap: 'butt',
-                                textSize: '16px',
-                                pathTransitionDuration: 0.5,
-                                pathColor: `rgba(255, 136, 136, ${multipleProgress / 100})`,
-                                textColor: '#f88',
-                                trailColor: '#d6d6d6',
-                                backgroundColor: '#3e98c7',
-                            })}
-                        />
                     </div>
                     </div>
                 </div>

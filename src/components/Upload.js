@@ -1,6 +1,6 @@
 import React from 'react';
 import FileUpload from './FileUpload';
-//import '../components/upload.css';
+import '../components/upload.css';
 import Navbar from './Navbar';
 import Footer from './Footer';
 
@@ -9,7 +9,7 @@ const Upload= () => {
     <>
     <video src='/videos/video-6.mp4' autoPlay loop muted />
     <Navbar/>
-    <div className='container'>      
+    <div className='containerupload'>      
       <FileUpload/>
     </div>
     <Footer/>
