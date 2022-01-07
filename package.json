@@ -23,7 +23,6 @@
     "framer-motion": "^4.1.17",
     "lodash.remove": "^4.7.0",
     "mongoose": "^6.0.14",
-    "nodemon": "^2.0.15",
     "prop-types": "^15.7.2",
     "reach": "^1.0.1",
     "react": "^17.0.2",
