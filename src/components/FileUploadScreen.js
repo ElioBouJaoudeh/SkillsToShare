@@ -56,8 +56,6 @@ const FileUploadScreen = (props) => {
                     <div className="col-10">
                         <button type="button" className="button" onClick={() => uploadSingleFile()} >Upload</button>
                     </div>
-                    <div className="col-2">
-                    </div>
                 </div>
             </div>
             <div className="col-6">
@@ -74,8 +72,6 @@ const FileUploadScreen = (props) => {
                         <div className="col-10">
                             <button type="button" onClick={() => UploadMultipleFiles()}  className="button">Upload</button>
                         </div>
-                        <div className="col-2">
-                    </div>
                     </div>
                 </div>
         </div>

@@ -13,13 +13,12 @@ const orgSchema = new Schema({
   address: {
     type: String,
     required: true,
-    unique: true,
     trim: true,
     minlength: 3
   },
-  fax : { type: Number, required: true, minlength: 10},
-  number : { type: Number, required: true, unique: true, trim: true, minlength: 10 },
-  website: { type: String, required: true, unique: true, trim: true},
+  fax : { type: Number, required: true},
+  number : { type: Number, required: true},
+  website: { type: String, required: true},
 }, {
   timestamps: true,
 });

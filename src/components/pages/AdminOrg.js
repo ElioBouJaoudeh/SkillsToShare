@@ -73,22 +73,6 @@ export default class Organization extends Component {
     window.location = '/adminorg';
   }
 
-  componentDidMount = () => {
-    this.getBlogPost();
-  };
-
-  getBlogPost = () => {
-    axios.get('http://localhost:5000/org')
-      .then((response) => {
-        const data = response.data;
-        this.setState({ orgsList: data });
-        console.log('Data has been received!!');
-      })
-      .catch(() => {
-        alert('Error retrieving data!!!');
-      });
-  }
-  
   handleChange = ({ target }) => {
     const { name, value } = target;
     this.setState({ [name]: value });
@@ -107,12 +91,12 @@ export default class Organization extends Component {
           <input type="text" placeholder="Name" name="orgname" value={this.state.orgname} onChange={this.onChangeName}/>
           <label>Address</label>
           <input type="text" placeholder="Address" name="address" value={this.state.address} onChange={this.onChangeAddress} />
-          <label>Number</label>
-          <input type="tel" className ="number"  placeholder = "Phone Number" value={this.state.number} onChange = {this.onChangeNumber} />
+          <label>Phone Number</label>
+          <input type="tel" className ="number" pattern="[0-9]{11}" placeholder = "area code + number (11 digits)" value={this.state.number} onChange = {this.onChangeNumber} />
           <label>Fax</label>
           <input placeholder="Fax" value={this.state.fax} onChange={this.onChangeFax}/>
           <label>Website</label>
-          <input type="url" placeholder="Website" value={this.state.website} onChange={this.onChangeWebsite}/>
+          <input type="text" placeholder="Website" value={this.state.website} onChange={this.onChangeWebsite}/>
           <button className="settingsSubmitButton" type="submit">
           SEND
         </button>
