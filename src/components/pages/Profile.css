@@ -9,19 +9,14 @@
     object-fit: contain;
   }
 
-  .box {
+  .boxfinal {
     box-shadow: -4px 10px 30px -1px rgba(0, 0, 0, 0.75);
-    min-height: 20rem;
+    min-height: 17rem;
     width: 55%;
     margin: 0px;
     margin-top: 30px;
     padding: 20px;
     border-radius: 5px;
-    column-gap: 100px;
-    column-width: 200px;
-    column-count: 2;
-    column-rule-width: 1px;
-    column-rule-color: #262626;
     column-rule-style: solid;
     background-color: white
   }
@@ -82,23 +77,6 @@
     color: rgb(255, 255, 255);
     font-size: 25px;
     margin-top: 20px;
-  }
-  
-  .settingsPPInput {
-    width: 30%;
-  }
-  
-  .settingsForm > input {
-    color: rgb(18, 17, 16);
-    margin-top: 10px;
-    margin-bottom: 10px;
-    margin-right: 300px;
-    font-size: 18px;
-    width: 55%;
-    height: 55px;
-    border-radius:6px;
-    border: none;
-    border-bottom: 1px solid rgb(18, 17, 16);
   }
   
   .settingsSubmitButton {
