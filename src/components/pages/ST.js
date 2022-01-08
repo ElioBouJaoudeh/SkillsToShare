@@ -8,6 +8,9 @@ import { useDispatch } from "react-redux";
 import { actionCreators } from "../../actions/ItemAction";
 import InBasketItem from "./inBasketitem";
 import InListItem from "./inListitem";
+import { Link } from 'react-router-dom';
+import {createNote,getNotes} from '../../actions/ItemAction';
+
 
 const SpeechRecognition =
   window.SpeechRecognition || window.webkitSpeechRecognition
@@ -20,11 +23,19 @@ mic.lang = 'en-US'
   const [isListening, setIsListening] = useState(false)
   const [note, setNote] = useState(null)
   const [savedNotes, setSavedNotes] = useState([])
-  const items = useSelector(state => state.items);
+  const notes = useSelector(state => state.notes);
+
+  const [noteData,setNoteData]=useState({content:''});
+  const dispatch = useDispatch();
 
   useEffect(() => {
     handleListen()
   }, [isListening])
+
+  useEffect(()=>{
+    dispatch(getNotes());
+  },[dispatch]);
+
 
   const handleListen = () => {
     if (isListening) {
@@ -57,25 +68,27 @@ mic.lang = 'en-US'
   }
 
   const handleSaveNote = () => {
+    setNoteData({...noteData,content:note})
+    dispatch(createNote(noteData));
     setSavedNotes([...savedNotes, note])
     setNote('')
   }
  
-const dispatch = useDispatch();
-const [input, setInput] = useState("");
+
+const [input, setInput] = useState({content:''});
+
+
 
 const handleInputChange = event => {
-  return setInput(event.target.value);
+  setInput({...input,content:event.target.value});
 };
 
-const handleSubmit = () => {
-  dispatch(actionCreators.addToList(input));
+const handleSubmit = (e) => {
+  e.preventDefault();
+  dispatch(createNote(input));
   setInput("");
 };
 
-const handleClear = () => {
-  dispatch(actionCreators.clearItems());
-};
 
   return (
     <>
@@ -101,27 +114,31 @@ const handleClear = () => {
           </div>
           <div className="boxST">
           <h2>Saved Notes</h2>
-          {items.map((item, index) => {
+          {/* {items.map((item, index) => {
         return item.inBasket ? (
           <InBasketItem item={item} index={index} />
         ) : (
           <InListItem item={item} index={index} />
         );
-      })}
+      })} */}
+
+{notes.map(note => <div>{note.content}</div>)}
       <div>
       <input
         className="input"
-        placeholder="Add item..."
-        value={input}
+        placeholder="Add note..."
+        value={input.content}
         onChange={handleInputChange}
       />
       <button className="button" variant="outline-dark" onClick={handleSubmit}>
         Add
       </button>
-      <button className="button" variant="outline-dark" onClick={handleClear}>
+      {/* <button className="button" variant="outline-dark" onClick={handleClear}>
         Clear
-      </button>
+      </button> */}
     </div>
+
+
          
         </div>
       </div>

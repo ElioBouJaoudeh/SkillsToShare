@@ -1,51 +1,37 @@
 const router = require('express').Router();
 let Note = require('../models/note.model');
 
-router.route('/').get((req, res) => {
-  Note.find()
-    .then(notes => res.json(notes))
-    .catch(err => res.status(400).json('Error: ' + err));
-});
 
-router.route('/add').post((req, res) => {
-  const description = req.body.description;
-  const date = Date.parse(req.body.date);
 
-  const newNote = new Note({
-    description,
-    date,
-  });
+const getNotes = async (req, res) => { 
+    try {
+        const postMessages = await Note.find();
+                
+        res.status(200).json(postMessages);
+    } catch (error) {
+        res.status(404).json({ message: error.message });
+    }
+}
 
-  newNote.save()
-  .then(() => res.json('Note added!'))
-  .catch(err => res.status(400).json('Error: ' + err));
-});
+ const createNote = async (req, res) => {
+    const { content } = req.body;
 
-router.route('/:id').get((req, res) => {
-  Note.findById(req.params.id)
-    .then(note => res.json(note))
-    .catch(err => res.status(400).json('Error: ' + err));
-});
+    const newPostMessage = new Note({ content })
 
-router.route('/:id').delete((req, res) => {
-  Note.findByIdAndDelete(req.params.id)
-    .then(() => res.json('Note deleted.'))
-    .catch(err => res.status(400).json('Error: ' + err));
-});
+    try {
+        await newPostMessage.save();
 
-router.route('/update/:id').post((req, res) => {
-  Note.findById(req.params.id)
-    .then(note => {
-      note.username = req.body.username;
-      note.description = req.body.description;
-      note.duration = Number(req.body.duration);
-      note.date = Date.parse(req.body.date);
+        res.status(201).json(newPostMessage );
+    } catch (error) {
+        res.status(409).json({ message: error.message });
+    }
+}
 
-      note.save()
-        .then(() => res.json('Note updated!'))
-        .catch(err => res.status(400).json('Error: ' + err));
-    })
-    .catch(err => res.status(400).json('Error: ' + err));
-});
+router.get('/', getNotes);
+router.post('/', createNote);
+// router.get('/:id', getPost);
+// router.patch('/:id', updatePost);
+// router.delete('/:id', deletePost);
+// router.patch('/:id/likePost', likePost);
 
 module.exports = router;

@@ -26,12 +26,14 @@ const notesRouter = require('./routes/note');
 const profilesRouter = require('./routes/profile');
 const orgsRouter = require('./routes/organization');
 
+
 app.use('/profiles', profilesRouter);
 app.use('/notes', notesRouter);
 app.use('/org', orgsRouter);
 app.use(bodyParser.json());
 app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 app.use('/api', fileRoutes.routes);
+
 
 app.listen(port, () => {
     console.log(`Server is running on port: ${port}`);

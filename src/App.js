@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import './App.css';
 import GMap from './components/pages/GMap';
@@ -19,6 +19,7 @@ import AboutSTS from './components/pages/AboutSTS';
 import Organization from './components/pages/AdminOrg';
 import { Provider } from 'react-redux';
 import store from './Store'
+
 
 function App() {
   return (
@@ -41,6 +42,8 @@ function App() {
         <Route path='/aboutsts' component={AboutSTS} />
         <Route path='/uploadf' component={Upload} />
         <Route path='/adminorg' component={Organization}/>
+      
+      
       </Switch>
     </Router>
     </Provider>
