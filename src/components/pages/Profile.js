@@ -127,6 +127,10 @@ export default class Profile extends Component {
 
   componentDidMount = () => {
     this.getBlogPost();
+    const user = JSON.parse(localStorage.getItem('profile'));
+    this.setState({
+      email: user?.result?.email
+    })
   };
 
 
@@ -142,11 +146,11 @@ export default class Profile extends Component {
       });
   }
 
-  displayBlogPost = (profileslist) => {
+  displayBlogPost = (profileslist,email) => {
     if (!profileslist.length) return null;
-    function findindex(name){
+    function findindex(){
       for(var i=0; i < profileslist.length; i++){
-        if(profileslist[i].first_name === name){
+        if(profileslist[i].email === email){
           return i;
         }
       }
@@ -155,17 +159,17 @@ export default class Profile extends Component {
     return (
       <div className="boxfinal">
         <h3>First Name:</h3>
-        <label>{profileslist[findindex("Elio Naoum")].first_name}</label>
+        <label>{profileslist[findindex()].first_name}</label>
         <h3>Last Name:</h3>
-        <label>{profileslist[findindex("Elio Naoum")].last_name}</label>
+        <label>{profileslist[findindex()].last_name}</label>
         <h3>Street:</h3>
-        <label>{profileslist[findindex("Elio Naoum")].street}</label>
+        <label>{profileslist[findindex()].street}</label>
         <h3> City:</h3>
-        <label>{profileslist[findindex("Elio Naoum")].city}</label>
+        <label>{profileslist[findindex()].city}</label>
         <h3> Country:</h3>
-        <label>{profileslist[findindex("Elio Naoum")].country}</label>
+        <label>{profileslist[findindex()].country}</label>
         <h3> Email:</h3>
-        <label>{profileslist[findindex("Elio Naoum")].email}</label>
+        <label>{profileslist[findindex()].email}</label>
       </div>
     )
   };
@@ -195,12 +199,12 @@ export default class Profile extends Component {
           <label>Country</label>
           <input type="country" className="form-control" id="inputCountry" placeholder="Country" value={this.state.country} onChange={this.onChangeCountry}/>
           <label>Email</label>
-          <input type="email" className="form-control" id="inputEmail" placeholder="Email" value={this.state.email} onChange={this.onChangeEmail}/>
+          <input type="email" className="form-control" id="inputEmail" placeholder="Email" value={this.state.email} />
           <button className="settingsSubmitButton" type="submit">
           UPDATE
           </button>
           <div className="profile">
-          {this.displayBlogPost(this.state.profileslist)}
+          {this.displayBlogPost(this.state.profileslist,this.state.email)}
           </div>
         </form>
       </div>
