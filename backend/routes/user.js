@@ -1,6 +1,6 @@
 
 const router = require('express').Router();
-let User = require('../models/user.model');
+var User = require('../models/user.model');
 
 bcrypt=require('bcryptjs');
 jwt=require('jsonwebtoken');
@@ -46,6 +46,4 @@ const signup = async (req,res) => {
 router.post('/signin',signin);
 router.post('/signup',signup);
 
-module.exports = {
-    routes: router
-}
+module.exports = router;

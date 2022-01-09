@@ -33,7 +33,7 @@ app.use('/notes', notesRouter);
 app.use('/org', orgsRouter);
 app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 app.use('/api', fileRoutes.routes);
-app.use('/user',userRoutes.routes);
+app.use('/user',userRoutes);
 app.use(bodyParser.json());
 
 
