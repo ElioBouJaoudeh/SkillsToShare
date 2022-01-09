@@ -85,7 +85,15 @@ function Navbar() {
                     Speech/Text
                   </Link>
                 </li>
-    
+                <li className='nav-item'>
+                  <Link
+                    to='/orguser'
+                    className='nav-links'
+                    onClick={closeMobileMenu}
+                  >
+                    Organizations
+                  </Link>
+                </li>
                 <li>
                   <Link
                     to='/prof'
@@ -98,7 +106,7 @@ function Navbar() {
                 {button && <ProfileButton buttonStyle='btn--outline'>PROFILE</ProfileButton>}
               <li className='nav-items'>
                   <button
-                    className='nav-button'
+                    className='nav-links'
                     onClick={logout}
                   >
                    <i class="fas fa-sign-out-alt"></i>

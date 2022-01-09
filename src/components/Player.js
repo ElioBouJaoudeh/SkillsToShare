@@ -7,7 +7,7 @@ const Player = () => {
         <div className='player-wrapper'>
           <ReactPlayer
             className='react-player'
-            url='htthttps://www.youtube.com/watch?v=fWr0-PwmEN8'
+            url='https://www.youtube.com/watch?v=c8YR6VX90U0&t=38s'
             width='100%'
             height='100%'
             controls={true}
