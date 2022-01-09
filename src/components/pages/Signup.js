@@ -50,9 +50,9 @@ const Signup= () => {
                          <FormLabel htmlFor='for'>Email</FormLabel>
                          <FormInput className="input" value={formData.email} onChange={handleEmailChange} />
                         <FormLabel htmlFor='for'>Password</FormLabel> 
-                        <FormInput className="input" value={formData.password} onChange={handlePasswordChange} /> 
+                        <FormInput className="input" type="password" value={formData.password} onChange={handlePasswordChange} /> 
                         <FormLabel htmlFor='for'>Confirm Password</FormLabel> 
-                        <FormInput className="input" value={formData.confirmPassword} onChange={handleconfirmChange} />
+                        <FormInput className="input" type="password" value={formData.confirmPassword} onChange={handleconfirmChange} />
                         <FormButton type='submit'>Create</FormButton>
                         <a href="/sign-in">Already have an account?  Sign-In</a>
                          </Form>  

@@ -45,7 +45,7 @@ const Login = () => {
                          <FormLabel htmlFor='for'>Email</FormLabel>
                          <FormInput className="input" value={formData.email} onChange={handleEmailChange} />
                         <FormLabel htmlFor='for'>Password</FormLabel> 
-                        <FormInput className="input" value={formData.password} onChange={handlePasswordChange} />
+                        <FormInput className="input" type="password" value={formData.password} onChange={handlePasswordChange} />
                         <FormButton type='submit'>Login</FormButton>
                         <a href="/pass" >Forgot your password?</a>
 
