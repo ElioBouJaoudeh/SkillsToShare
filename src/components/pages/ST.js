@@ -24,7 +24,7 @@ mic.lang = 'en-US'
   const [note, setNote] = useState(null)
   const [savedNotes, setSavedNotes] = useState([])
   const notes = useSelector(state => state.notes);
-
+  const user = JSON.parse(localStorage.getItem('profile'));
   const [noteData,setNoteData]=useState({content:''});
   const dispatch = useDispatch();
 
@@ -113,18 +113,15 @@ const handleSubmit = (e) => {
           ))}
           </div>
           <div className="boxST">
+          
           <h2>Saved Notes</h2>
-          {/* {items.map((item, index) => {
-        return item.inBasket ? (
-          <InBasketItem item={item} index={index} />
-        ) : (
-          <InListItem item={item} index={index} />
-        );
-      })} */}
-
-{notes.map(note => <div>{note.content}
-</div>)}
-      <div>
+          {notes.map(note => {
+            if(user?.result?._id === note?.creator)
+            return (
+          <div>{note.content}
+              </div>);})}
+              
+        
       <input
         className="input"
         placeholder="Add note..."
@@ -139,10 +136,10 @@ const handleSubmit = (e) => {
         Clear
       </button> */}
     </div>
-
-
+  
+  
          
-        </div>
+        
       </div>
     </>
   )

@@ -16,9 +16,9 @@ const getNotes = async (req, res) => {
 }
 
  const createNote = async (req, res) => {
-    const { content } = req.body;
+    const note = req.body;
 
-    const newPostMessage = new Note({ content })
+    const newPostMessage = new Note({ ...note,creator:req.userId })
 
     try {
         await newPostMessage.save();
@@ -40,7 +40,7 @@ const getNotes = async (req, res) => {
 //    res.json(updatedNote);
 // }
 
-router.get('/', auth,getNotes);
+router.get('/', getNotes);
 router.post('/', auth, createNote);
 // router.get('/:id', getPost);
  //router.patch('/:id', updateNote);
