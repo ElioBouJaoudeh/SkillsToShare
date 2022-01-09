@@ -1,7 +1,9 @@
 import React, {useState, useEffect} from 'react';
-import { Link } from 'react-router-dom';
 import './Navbar.css';
 import { ProfileButton } from './ProfileButton';
+import { Link, useHistory, useLocation } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import decode from 'jwt-decode';
 
 function Navbar() {
     const [click, setClick] = useState(false);
@@ -21,6 +23,30 @@ function Navbar() {
     useEffect(() => {
       showButton();
     }, []);
+    const [user, setUser] = useState(JSON.parse(localStorage.getItem('profile')));
+    const dispatch = useDispatch();
+    const location = useLocation();
+    const history = useHistory();
+    const logout = () => {
+      dispatch({ type: 'LOGOUT' });
+  
+      history.push('/');
+  
+      setUser(null);
+    };
+
+    useEffect(() => {
+      const token = user?.token;
+  
+      if (token) {
+        const decodedToken = decode(token);
+  
+        if (decodedToken.exp * 1000 < new Date().getTime()) logout();
+      }
+  
+      setUser(JSON.parse(localStorage.getItem('profile')));
+    }, [location]);
+  
   
     window.addEventListener('resize', showButton);
 
@@ -71,13 +97,12 @@ function Navbar() {
                 </li>
                 {button && <ProfileButton buttonStyle='btn--outline'>PROFILE</ProfileButton>}
               <li className='nav-items'>
-                  <Link
-                    to='/'
-                    className='nav-links'
-                    onClick={closeMobileMenu}
+                  <button
+                    className='nav-button'
+                    onClick={logout}
                   >
                    <i class="fas fa-sign-out-alt"></i>
-                  </Link>
+                  </button>
                 </li>
               </ul>
             </div>
