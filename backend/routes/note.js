@@ -1,3 +1,5 @@
+auth=require('../middleware/auth.js');
+
 const router = require('express').Router();
 let Note = require('../models/note.model');
 
@@ -27,10 +29,21 @@ const getNotes = async (req, res) => {
     }
 }
 
-router.get('/', getNotes);
-router.post('/', createNote);
+// const updateNote=async(req,res) =>{
+
+//     const {id:_id}=req.params;
+//     const note=req.body;
+//     if(!mongoose.Types.ObjectId.isValid(_id)) return res.status(404).send('no Note with that id');
+
+//    const updatedNote= await Note.findByIdAndUpdate(_id,note,{new:true});
+
+//    res.json(updatedNote);
+// }
+
+router.get('/', auth,getNotes);
+router.post('/', auth, createNote);
 // router.get('/:id', getPost);
-// router.patch('/:id', updatePost);
+ //router.patch('/:id', updateNote);
 // router.delete('/:id', deletePost);
 // router.patch('/:id/likePost', likePost);
 

@@ -1,16 +1,18 @@
-const jwt = require("jsonwebtoken");
-require("dotenv").config();
+jwt = require("jsonwebtoken");
 
-function auth(req, res, next) {
-  const token = req.header("x-auth-token");
-  if (!token) return res.status(401).send("Access denied. Not authorized...");
-  try {
-    const jwtSecretKey = process.env.SKILLSTOSHARE_JWT_SECRET_KEY;
-    const decoded = jwt.verify(token, jwtSecretKey);
-    req.user = decoded;
+
+const auth = async(req,res,next)=>{
+  try{
+    const token=req.headers.authorization.split(" ")[1];
+    let decodedData;
+    if(token){
+      decodedData=jwt.verify(token,'test');
+      req.userId=decodedData?.id;
+    }
     next();
-  } catch (ex) {
-    res.status(400).send("Invalid auth token...");
+
+  }catch(error){
+    console.log(error);
   }
 }
 

@@ -5,6 +5,7 @@ const path = require('path');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const fileRoutes = require('./routes/file-upload-routes');
+const userRoutes = require('./routes/user');
 
 require('dotenv').config();
 
@@ -32,6 +33,7 @@ app.use('/notes', notesRouter);
 app.use('/org', orgsRouter);
 app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 app.use('/api', fileRoutes.routes);
+app.use('/user',userRoutes.routes);
 app.use(bodyParser.json());
 
 

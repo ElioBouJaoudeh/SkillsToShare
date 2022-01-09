@@ -122,7 +122,8 @@ const handleSubmit = (e) => {
         );
       })} */}
 
-{notes.map(note => <div>{note.content}</div>)}
+{notes.map(note => <div>{note.content}
+</div>)}
       <div>
       <input
         className="input"
@@ -133,6 +134,7 @@ const handleSubmit = (e) => {
       <button className="button" variant="outline-dark" onClick={handleSubmit}>
         Add
       </button>
+      
       {/* <button className="button" variant="outline-dark" onClick={handleClear}>
         Clear
       </button> */}

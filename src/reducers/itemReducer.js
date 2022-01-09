@@ -8,7 +8,7 @@ export default (notes = [], action) => {
 
     case 'CREATE':
       return [...notes,action.payload];
-
+    
   
     default:
       return notes;
