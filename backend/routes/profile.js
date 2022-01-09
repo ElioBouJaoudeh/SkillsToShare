@@ -13,6 +13,7 @@ router.route('/add').post((req, res) => {
   const city = req.body.city;
   const street = req.body.street;
   const country = req.body.country;
+  const email = req.body.email;
 
   const newProfile= new Profile({
     first_name,
@@ -20,6 +21,7 @@ router.route('/add').post((req, res) => {
     city,
     street,
     country,
+    email,
   });
 
   newProfile.save()
@@ -47,6 +49,7 @@ router.route('/update/:id').post((req, res) => {
       profile.city = req.body.city;
       profile.street = req.body.street;
       profile.country = req.body.country;
+      profile.email = req.body.email;
 
       profile.save()
         .then(() => res.json('Profile updated!'))

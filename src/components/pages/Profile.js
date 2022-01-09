@@ -55,6 +55,7 @@ export default class Profile extends Component {
     this.onChangeCity = this.onChangeCity.bind(this);
     this.onChangeStreet = this.onChangeStreet.bind(this);
     this.onChangeCountry = this.onChangeCountry.bind(this);
+    this.onChangeEmail = this.onChangeEmail.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
 
     this.state = {
@@ -63,6 +64,7 @@ export default class Profile extends Component {
       city: '',
       street: '',
       country : '',
+      email: '',
       profileslist: []
     }
   }
@@ -97,6 +99,12 @@ export default class Profile extends Component {
     })
   }
 
+  onChangeEmail(e) {
+    this.setState({
+      email: e.target.value
+    })
+  }
+
   onSubmit(e) {
     e.preventDefault();
 
@@ -106,6 +114,7 @@ export default class Profile extends Component {
       city: this.state.city,
       street: this.state.street,
       country: this.state.country,
+      email: this.state.email,
     }
 
     console.log(profile);
@@ -155,6 +164,8 @@ export default class Profile extends Component {
         <label>{profileslist[findindex("Elio Naoum")].city}</label>
         <h3> Country:</h3>
         <label>{profileslist[findindex("Elio Naoum")].country}</label>
+        <h3> Email:</h3>
+        <label>{profileslist[findindex("Elio Naoum")].email}</label>
       </div>
     )
   };
@@ -183,9 +194,11 @@ export default class Profile extends Component {
           <input type="city" className="form-control" id="inputCity" placeholder="City" value={this.state.city} onChange={this.onChangeCity}/>
           <label>Country</label>
           <input type="country" className="form-control" id="inputCountry" placeholder="Country" value={this.state.country} onChange={this.onChangeCountry}/>
+          <label>Email</label>
+          <input type="email" className="form-control" id="inputEmail" placeholder="Email" value={this.state.email} onChange={this.onChangeEmail}/>
           <button className="settingsSubmitButton" type="submit">
           UPDATE
-        </button>
+          </button>
           <div className="profile">
           {this.displayBlogPost(this.state.profileslist)}
           </div>

@@ -19,6 +19,7 @@ import AboutSTS from './components/pages/AboutSTS';
 import Organization from './components/pages/AdminOrg';
 import { Provider } from 'react-redux';
 import store from './Store'
+import UserOrg from './components/pages/UserOrg';
 
 
 function App() {
@@ -42,8 +43,7 @@ function App() {
         <Route path='/aboutsts' component={AboutSTS} />
         <Route path='/uploadf' component={Upload} />
         <Route path='/adminorg' component={Organization}/>
-      
-      
+        <Route path='/orguser' component={UserOrg}/>
       </Switch>
     </Router>
     </Provider>
