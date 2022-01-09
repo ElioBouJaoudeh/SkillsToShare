@@ -1,7 +1,6 @@
 import React from 'react';
 import './VideoPages.css';
 
-
 function Emergencycall() {
     return (
         <div className='video-container'>
