@@ -85,7 +85,8 @@ function Navbar() {
                     Speech/Text
                   </Link>
                 </li>
-                <li className='nav-item'>
+                {( user?.result?.role === 1) && (
+              <li className='nav-item'>
                   <Link
                     to='/adminorg'
                     className='nav-links'
@@ -93,7 +94,7 @@ function Navbar() {
                   >
                     Organizations
                   </Link>
-                </li>
+                </li>)}
                 <li>
                   <Link
                     to='/prof'
