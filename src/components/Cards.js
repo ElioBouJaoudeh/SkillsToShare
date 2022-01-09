@@ -32,7 +32,7 @@ function Cards() {
               src='images/img-3.png'
               text='Access Organizations'
               label='Organizations'
-              path='/adminorg'
+              path='/orguser'
             />
             <CardItem
               src='images/img-4.png'
