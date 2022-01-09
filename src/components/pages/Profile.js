@@ -144,23 +144,7 @@ export default class Profile extends Component {
       return 0;
     }
     return (
-      <div className="box">
-        <h3>Profile Picture</h3>
-          <div className="settingsPP">
-            <img
-              src="https://t4.ftcdn.net/jpg/02/15/84/43/360_F_215844325_ttX9YiIIyeaR7Ne6EaLLjMAmy4GvPC69.jpg"
-              alt=""
-            />
-            <label htmlFor="fileInput">
-              <i className="settingsPPIcon fas fa-pen"></i>{" "}
-            </label>
-            <input
-              id="fileInput"
-              type="file"
-              style={{ display: "none" }}
-              className="settingsPPInput"
-            />
-          </div>
+      <div className="boxfinal">
         <h3>First Name:</h3>
         <label>{profileslist[findindex("Elio Naoum")].first_name}</label>
         <h3>Last Name:</h3>
