@@ -43,7 +43,7 @@ const Login = () => {
                    <Form onSubmit={handleSubmit}>
                          <FormH1>Log into your account </FormH1>
                          <FormLabel htmlFor='for'>Email</FormLabel>
-                         <FormInput className="input" value={formData.email} onChange={handleEmailChange} />
+                         <FormInput className="input" type="email" value={formData.email} onChange={handleEmailChange} />
                         <FormLabel htmlFor='for'>Password</FormLabel> 
                         <FormInput className="input" type="password" value={formData.password} onChange={handlePasswordChange} />
                         <FormButton type='submit'>Login</FormButton>

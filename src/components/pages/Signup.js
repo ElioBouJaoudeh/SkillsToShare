@@ -48,7 +48,7 @@ const Signup= () => {
                      <Form onSubmit={handleSubmit}>
                          <FormH1>Sign up to Skills To Share </FormH1>
                          <FormLabel htmlFor='for'>Email</FormLabel>
-                         <FormInput className="input" value={formData.email} onChange={handleEmailChange} />
+                         <FormInput className="input" type="email" value={formData.email} onChange={handleEmailChange} />
                         <FormLabel htmlFor='for'>Password</FormLabel> 
                         <FormInput className="input" type="password" value={formData.password} onChange={handlePasswordChange} /> 
                         <FormLabel htmlFor='for'>Confirm Password</FormLabel> 
