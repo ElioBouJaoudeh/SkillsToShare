@@ -18,7 +18,11 @@ Les avancées récentes du navigateur et la disponibilité des employés de serv
  ![image](https://user-images.githubusercontent.com/88712232/148388995-bc0face1-0e5d-4ea1-8fe5-ae7805025c61.png)
 ![image](https://user-images.githubusercontent.com/88712232/148389048-cb4f5cde-fa39-4ee8-b4b3-0ddc35182e1d.png)
 
-# 3	Conclusion
+# 3	Étapes à suivre
+1) Rentrer à l'intérieur du folder intitullé "backend" puis taper la commande **node server** pour déclencher le serveur localement sur le port 5000
+2) Dans le folder par défaut "SkillsToShare", taper la commande **yarn start**  pour faire marcher le frontend sur le port 3000
+
+# 4	Conclusion
 Finalement, nous avons construit un site adaptatif et de plus téléchargeable sur n'importe quel appareil électronique. Il permet à chacun de s'inscrire en tant qu'administrateur ou d'utilisateur régulier ayant des options différentes qui leur sont disponibles. Les tâches que l’on avait à préparer ont été réalisées dans le temps limité qui nous a été donné : le squelette général du site est solide mais nous pouvons toujours le perfectionner en rajoutant plus d’outils et de librairies.
 Citons à titre d'exemple la notion de carte qui permet aux utilisateurs de placer des points de repères relatifs à des centre d'aide aux malentendants, hôpitaux ou autres emplacements. Cette dernière n'a pas été introduite en classe et nous avons commencé par la développer de côté mais ne l'avons pas achevée pour prioriser d'autres éléments plus essentiels durant l'implémentation.
 Pour conclure, Skills To Share a été pour nous une manière de consolider nos connaissances en terme d’analyse d’un projet qui nous a été délivré, et d'appliquer le matériel qui nous a été transmis dans le cours de « Programmation pour le Web », tout en travaillant pour une cause humanitaire.
